@@ -13,3 +13,6 @@ dist/
 *.tsbuildinfo
 next-env.d.ts
 Thumbs.db
+test-results/
+playwright-report/
+blob-report/
