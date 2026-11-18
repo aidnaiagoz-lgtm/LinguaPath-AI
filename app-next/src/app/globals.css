@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by data-theme on <html> (set before paint by an inline script). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------------
+   Design tokens — LinguaPath AI
+   Brand: Deep Navy #080F26 · Indigo #697AFA · Soft Cyan #50DDD3
+   Text tokens meet WCAG AA (≥ 4.5:1) on every surface they are used on;
+   see tests/unit/contrast.test.ts.
+   ------------------------------------------------------------------ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-muted: #f0f2f7;
+  --surface-sunken: #e9ecf3;
+  --border: #e2e5ee;
+  --border-strong: #cdd2df;
+  --input-border: #8a93ab;
+  --text: #0b1430;
+  --text-muted: #4a5370;
+  --text-subtle: #636c89;
+  --primary: #4c5bd4;
+  --primary-hover: #4250c2;
+  --primary-fg: #ffffff;
+  --primary-soft: #eef0ff;
+  --primary-soft-fg: #3a47b8;
+  --accent: #0e7c76;
+  --accent-soft: #e3f7f5;
+  --accent-soft-fg: #0b6c67;
+  --success: #15803d;
+  --success-soft: #e8f6ee;
+  --warning: #b45309;
+  --warning-soft: #fdf3e6;
+  --danger: #b42318;
+  --danger-soft: #fdeceb;
+  --ring: #4c5bd4;
+  --brand-navy: #080f26;
+  --brand-indigo: #697afa;
+  --brand-cyan: #50ddd3;
+  --shadow-sm: 0 1px 2px rgb(11 20 48 / 0.05);
+  --shadow-md: 0 1px 2px rgb(11 20 48 / 0.04), 0 8px 24px -12px rgb(11 20 48 / 0.12);
+  --shadow-lg: 0 24px 48px -24px rgb(11 20 48 / 0.28);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #10162a;
+  --surface: #161d33;
+  --surface-muted: #1c2440;
+  --surface-sunken: #131a2e;
+  --border: #263052;
+  --border-strong: #334068;
+  --input-border: #66719a;
+  --text: #e7eaf3;
+  --text-muted: #a9b1c7;
+  --text-subtle: #8c95ae;
+  --primary: #8d9bff;
+  --primary-hover: #a3aeff;
+  --primary-fg: #0b1430;
+  --primary-soft: #232c52;
+  --primary-soft-fg: #b4beff;
+  --accent: #5eddd3;
+  --accent-soft: #15363a;
+  --accent-soft-fg: #7fe6de;
+  --success: #4ade80;
+  --success-soft: #16352a;
+  --warning: #fbbf24;
+  --warning-soft: #3a2f18;
+  --danger: #f87171;
+  --danger-soft: #3d1f27;
+  --ring: #8d9bff;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.2), 0 8px 24px -12px rgb(0 0 0 / 0.45);
+  --shadow-lg: 0 24px 48px -24px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input-border);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-fg: var(--primary-soft-fg);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-soft-fg: var(--accent-soft-fg);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-ring: var(--ring);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-cyan: var(--brand-cyan);
+  --shadow-card: var(--shadow-md);
+  --shadow-soft: var(--shadow-sm);
+  --shadow-float: var(--shadow-lg);
+  --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --radius-card: 1rem;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-enter: enter 260ms var(--ease-out-soft) both;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+}
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :lang(zh) { font-feature-settings: normal; }
+  ::selection { background: color-mix(in srgb, var(--primary) 22%, transparent); }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  [tabindex="-1"]:focus { outline: none; }
+  button, [role="button"], label[for], summary { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  dialog::backdrop { background: rgb(8 15 38 / 0.45); backdrop-filter: blur(2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
