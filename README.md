@@ -26,10 +26,10 @@ The product does **not** guarantee a CEFR level or an IELTS band; AI feedback is
 |---|---|
 | Dashboard, sidebar navigation, responsive layout (375px–1440px) | ✅ Working |
 | 6 sample lessons (A0 ×3, A1 ×3) with kk/zh/en explanations | ✅ Working |
-| Lessons unlock in order; 3-question quiz per lesson; XP | ✅ Working |
-| Word Match mini-game (English ↔ Kazakh) | ✅ Working |
-| Weekly exam (6 questions) with result history | ⚠️ Demo |
-| Progress page with 28-day activity calendar | ✅ Browser `localStorage` only |
+| Lessons unlock in order (75% pass mark, PRD §6); quiz per lesson; XP given once | ✅ Working |
+| Word Match mini-game (English ↔ Kazakh), shuffled each round, XP once per day | ✅ Working |
+| Weekly exam built only from completed lessons; XP only for improvement | ⚠️ Demo |
+| Progress page with 28-day activity calendar (Kazakhstan time, Asia/Almaty) | ✅ Browser `localStorage` only |
 | Settings: explanation language, morning/evening study times (09–19 blocked) | ✅ Working |
 | Library of external learning resources (links only) | ✅ Working |
 | Mira AI teacher chat | 🟡 **Demo only** — scripted replies, no LLM |
@@ -56,7 +56,7 @@ See [docs/PROJECT_ROADMAP_AND_QA.md](docs/PROJECT_ROADMAP_AND_QA.md) for the ite
 | Auth | — | Supabase Auth |
 | AI | Scripted demo replies | Server-side, provider-neutral AI API layer |
 | Hosting | Open the HTML file locally | Vercel |
-| Tests | — | Vitest (unit) + Playwright (E2E) |
+| Tests | `node:test` (unit) + Playwright (E2E, 375px & 1440px) | Vitest (unit) + Playwright (E2E) |
 
 ## Run locally
 
@@ -85,6 +85,28 @@ Then open <http://localhost:8080>.
 
 Progress is saved only in the current browser. Use **Settings → Прогресті өшіру** to reset it.
 
+## Run tests
+
+Requires Node.js 22+.
+
+```bash
+npm install
+```
+
+```bash
+npx playwright install chromium
+```
+
+```bash
+npm test
+```
+
+- `npm run test:unit` — pure logic and content checks (`tests/unit/`, no browser needed).
+- `npm run test:e2e` — browser tests on desktop (1440px) and mobile (375px) (`tests/e2e/`).
+- `npm run serve` — serve the prototype at <http://127.0.0.1:4173>.
+
+The same tests run automatically on every pull request (`.github/workflows/test.yml`).
+
 ## Repository structure
 
 ```
@@ -95,8 +117,12 @@ LinguaPath-AI/
 ├── website/                  # Working prototype (reference for the migration)
 │   ├── index.html
 │   ├── styles.css
-│   ├── app.js
+│   ├── app.js                # UI rendering and event handling
+│   ├── logic.js              # Pure, unit-tested logic (state, dates, scoring)
 │   └── data.js               # Original sample lessons, words, exam, resources
+├── tests/
+│   ├── unit/                 # node:test unit tests
+│   └── e2e/                  # Playwright browser tests
 ├── docs/
 │   ├── PROJECT_REQUIREMENTS_KK.md       # Product requirements (PRD)
 │   ├── LEARNING_PROGRAM_KK.md           # A0 → B2 → IELTS curriculum

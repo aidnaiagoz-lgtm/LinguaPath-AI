@@ -10,5 +10,15 @@ window.LINGUA_DATA = {
   ],
   words:[{en:'apple',kk:'алма',zh:'苹果'},{en:'water',kk:'су',zh:'水'},{en:'study',kk:'оқу',zh:'学习'},{en:'teacher',kk:'мұғалім',zh:'老师'},{en:'book',kk:'кітап',zh:'书'},{en:'university',kk:'университет',zh:'大学'},{en:'morning',kk:'таң',zh:'早上'},{en:'friend',kk:'дос',zh:'朋友'}],
   resources:[{name:'VOA Learning English',type:'Listening · A0–B1',url:'https://learningenglish.voanews.com/',note:'Аудио мен жаңадан бастаушыларға арналған сабақтар.'},{name:'British Council LearnEnglish',type:'Grammar · A1–C1',url:'https://learnenglish.britishcouncil.org/',note:'Деңгейге сай грамматика және жаттығулар.'},{name:'BBC Learning English',type:'Pronunciation · Listening',url:'https://www.bbc.co.uk/learningenglish',note:'Айтылым, қысқа видеосабақтар.'},{name:'Cambridge English',type:'Activities · Practice',url:'https://www.cambridgeenglish.org/learning-english/',note:'Деңгейлік жаттығулар.'},{name:'Bilibili — 英语零基础',type:'中文讲解 · Beginner',url:'https://search.bilibili.com/all?keyword=%E8%8B%B1%E8%AF%AD%E9%9B%B6%E5%9F%BA%E7%A1%80',note:'Қытай тіліндегі түсіндірулер: автор видеоларына сілтемелер.'},{name:'Hujiang English',type:'中文语法',url:'https://www.hjenglish.com/',note:'Қытайша грамматика материалдары.'},{name:'Youdao Dictionary',type:'English ↔ 中文',url:'https://dict.youdao.com/',note:'Сөздерді аудару және түсіну.'},{name:'IELTS Official',type:'IELTS · Later stage',url:'https://ielts.org/take-a-test/preparation-resources',note:'Ресми дайындық ресурстары.'}],
-  exam:[{q:'I ___ a student.',answers:['am','is','are'],correct:0,topic:'Grammar'},{q:'She ___ English.',answers:['speak','speaks','speaking'],correct:1,topic:'Grammar'},{q:'Where are you from?',answers:['Қайда барасың?','Қай жақтансың?','Қайда оқисың?'],correct:1,topic:'Reading'},{q:'Yesterday I ___ home.',answers:['went','go','goes'],correct:0,topic:'Grammar'},{q:'“Water” деген не?',answers:['Су','Алма','Кітап'],correct:0,topic:'Vocabulary'},{q:'What time is it? — It is ___ o’clock.',answers:['seven','sevens','seventh'],correct:0,topic:'Vocabulary'}]
+  /* Each exam question is linked to the lesson that teaches it (lessonId).
+     The weekly exam only shows questions from lessons the learner has completed. */
+  exam:[
+    {id:'ex-01',lessonId:'a0-01',q:'«I am a student» қалай аударылады?',answers:['Мен студентпін','Ол студент','Біз студентпіз'],correct:0,topic:'Reading'},
+    {id:'ex-02',lessonId:'a0-02',q:'I ___ a student.',answers:['am','is','are'],correct:0,topic:'Grammar'},
+    {id:'ex-03',lessonId:'a0-03',q:'What time is it? — It is ___ o’clock.',answers:['seven','sevens','seventh'],correct:0,topic:'Vocabulary'},
+    {id:'ex-04',lessonId:'a1-01',q:'She ___ English.',answers:['speak','speaks','speaking'],correct:1,topic:'Grammar'},
+    {id:'ex-05',lessonId:'a1-02',q:'Where ___ you live? — I live in Almaty.',answers:['do','does','is'],correct:0,topic:'Grammar'},
+    {id:'ex-06',lessonId:'a1-02',q:'Where are you from?',answers:['Қайда барасың?','Қай жақтансың?','Қайда оқисың?'],correct:1,topic:'Vocabulary'},
+    {id:'ex-07',lessonId:'a1-03',q:'“University” деген не?',answers:['Университет','Мектеп','Кітапхана'],correct:0,topic:'Vocabulary'}
+  ]
 };
