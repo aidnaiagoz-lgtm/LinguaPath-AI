@@ -7,3 +7,9 @@ node_modules/
 *.log
 coverage/
 dist/
+.vercel/
+.idea/
+.vscode/
+*.tsbuildinfo
+next-env.d.ts
+Thumbs.db
