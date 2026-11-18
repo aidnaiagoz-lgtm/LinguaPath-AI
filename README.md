@@ -2,7 +2,7 @@
 
 **LinguaPath AI** is a personal, adaptive English academy that takes a learner from **Beginner (A0) to B2** and later to IELTS Academic preparation, with explanations in **Kazakh, Chinese and English**.
 
-> **Status: Iteration 0 — working front-end prototype (demo).**
+> **Status: Iteration 1 — Next.js app in [`app-next/`](app-next/) (front-end, demo data). The original static prototype stays in [`website/`](website/).**
 > There is no backend, no account system and no real AI yet. The AI teacher Mira replies with pre-written **DEMO** answers and is labelled as such everywhere.
 
 Қазақша толық нұсқаулық: [README_FIRST_KK.md](README_FIRST_KK.md)
@@ -58,7 +58,15 @@ See [docs/PROJECT_ROADMAP_AND_QA.md](docs/PROJECT_ROADMAP_AND_QA.md) for the ite
 | Hosting | Open the HTML file locally | Vercel |
 | Tests | `node:test` (unit) + Playwright (E2E, 375px & 1440px) | Vitest (unit) + Playwright (E2E) |
 
-## Run locally
+## Next.js app (`app-next/`)
+
+The new interface — premium, minimal, light/dark, responsive — built with Next.js 16, TypeScript and Tailwind CSS. See [app-next/README.md](app-next/README.md) and the design system in [app-next/DESIGN.md](app-next/DESIGN.md).
+
+```bash
+cd app-next && npm ci && npm run dev
+```
+
+## Run the original prototype locally
 
 The prototype needs no build step, no server and no API key.
 
